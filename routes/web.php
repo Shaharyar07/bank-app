@@ -37,6 +37,8 @@ Route::get('/transactions', function () {
         'transactions',
         [
             'title' => 'Transactions',
+            "transactions" => \App\Models\Transaction::all(),
+           
         ]
     );
 });

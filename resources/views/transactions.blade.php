@@ -10,17 +10,9 @@
 </head>
 
 <body background='images/bg.png'>
-
-    <x-sidebar />
-  <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-   
-    <x-header :title=$title />
-
-      <div class="px-6 pt-6 2xl:container">
-         <!-- component -->
-
-         <body class="antialiased font-sans bg-gray-200">
-            <div class="container mx-auto px-4 sm:px-8">
+@extends('layout')
+@section('content')
+ <div class="container mx-auto px-4 sm:px-8">
                <div class="py-8">
                   <div>
                      <h2 class="text-3xl font-bold text-gray-600 leading-tight text-center border-b-2 py-4 ">Search your
@@ -107,7 +99,7 @@
                                     <span
                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                        <span aria-hidden
-                                          class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                          class="absolute inset-0 opacity rounded-full {{$transaction['Transaction Status'] == 'Success' ? 'bg-green-200' : 'bg-red-500'}}"></span>
                                        <span class="relative">{{$transaction['Transaction Status']}}</span>
                                     </span>
                                  </td>
@@ -121,10 +113,7 @@
                   </div>
                </div>
             </div>
-         </body>
-
-      </div>
-   </div>
+   @endsection
 
 </body>
 <script src="js/main.js"></script>

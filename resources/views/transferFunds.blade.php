@@ -10,14 +10,9 @@
 </head>
 
 <body background='images/bg.png'>
-
-   <x-sidebar />
-  <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-   
-    <x-header :title=$title />
-
-    <div class="px-6 pt-6 2xl:container">
-      <div class="w-full">
+@extends('layout')
+@section('content')
+ <div class="w-full">
         <div class="container  mx-auto py-8 mt-10">
           <div class="w-96 mx-auto bg-white rounded shadow">
 
@@ -62,20 +57,7 @@
 
         </div>
       </div>
-    
-
-
-
-    </div>
-    </form>
-
-  </div>
-
-  </div>
-  </div>
-
-  </div>
-  </div>
+@endsection
 
 </body>
 <script src="{{ asset("/js/main.js") }}"></script>

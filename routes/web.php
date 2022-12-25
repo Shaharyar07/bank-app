@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view(
         'index'
@@ -26,7 +28,6 @@ Route::get('/dashboard', function () {
         'dashboard',
         [
             'title' => 'Dashboard',
-            'account' => \App\Models\Account::find(1),
         ]
     );
 });

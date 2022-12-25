@@ -10,13 +10,9 @@
 </head>
 
 <body background='images/bg.png'>
-
-   <x-sidebar />
-  <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-   
- <x-header :title=$title />
-    <div class="px-6 pt-6 2xl:container">
-      <div class="grid gap-6 ">
+@extends('layout')
+@section('content')
+ <div class="grid gap-6 ">
         <div class="h-full py-6 px-6 rounded-xl border border-gray-200 bg-white">
           <h5 class="text-3xl text-gray-700 font-bold border-b-2 py-4">Track your investments</h5>
           <div class="my-8">
@@ -94,9 +90,8 @@
         </div>
       </div>
 
-    </div>
-  </div>
-  </div>
+@endsection
+
 
 </body>
 <script src="js/main.js"></script>

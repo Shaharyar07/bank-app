@@ -66,7 +66,7 @@
               </defs>
             </svg>
             <div>
-              <h5 class="text-xl text-gray-600 text-center">Your Current Balance</h5>
+              <h5 class="text-xl text-gray-600 text-center">Your Current Balance </h5>
               <div class="mt-2 flex justify-center gap-4">
                 <h3 class="text-3xl font-bold text-gray-700">{{$account['Balance']}}-$</h3>
                 <div class="flex items-end gap-1 text-green-500">

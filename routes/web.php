@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view(
+        'index'
+    );
 });
 Route::get('/signup', function () {
     return view('signup');
@@ -24,6 +26,7 @@ Route::get('/dashboard', function () {
         'dashboard',
         [
             'title' => 'Dashboard',
+            'account' => \App\Models\Account::find(1),
         ]
     );
 });
@@ -38,7 +41,7 @@ Route::get('/transactions', function () {
         [
             'title' => 'Transactions',
             "transactions" => \App\Models\Transaction::all(),
-           
+
         ]
     );
 });

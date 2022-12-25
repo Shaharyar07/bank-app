@@ -9,7 +9,7 @@
 <body background='images/bg.png'>
 
  
-  <x-sidebar  :account=$account />
+  <x-sidebar   />
   <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
    
     <x-header :title=$title />

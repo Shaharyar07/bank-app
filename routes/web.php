@@ -54,3 +54,11 @@ Route::get('/transferFunds', function () {
         ]
     );
 });
+Route::get('/profile', function () {
+    return view(
+        'profile',
+        [
+            'title' => 'Profile',
+        ]
+    );
+});

@@ -21,7 +21,8 @@
         <p class="text-3xl text-center">
           Welcome.
         </p>
-        <form class="flex flex-col pt-3 md:pt-8" >
+        <form class="flex flex-col pt-3 md:pt-8" action="/users/authenticate" method="POST" >
+          @csrf
           <div class="flex flex-col pt-4">
             <div class="flex relative ">
               <span
@@ -33,10 +34,15 @@
                   </path>
                 </svg>
               </span>
-              <input type="text" id="design-login-email"
+              <input type="text" id="email"
+              name="email"
+               value="{{old('email')}}"
                 class=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 placeholder="Email" />
             </div>
+             @error('email')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
           </div>
           <div class="flex flex-col pt-4 mb-12">
             <div class="flex relative ">
@@ -49,13 +55,18 @@
                   </path>
                 </svg>
               </span>
-              <input type="password" id="design-login-password"
+              <input type="password" id="password"  value="{{old('password')}}"
+              name="password"
                 class=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 placeholder="Password" />
             </div>
+                    @error('password')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
+            
           </div>
-          <button type="button" 
-          onclick="location.href='{{ url('/dashboard') }}'"
+          <button type="submit" 
+        
             class="w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-black shadow-md hover:text-black hover:bg-white focus:outline-none focus:ring-2">
             <span class="w-full" >
               Sign In

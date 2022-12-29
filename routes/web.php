@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,6 @@ Route::get('/profile', function () {
         ]
     );
 });
+
+// Log In User
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

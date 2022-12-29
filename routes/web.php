@@ -66,3 +66,6 @@ Route::get('/profile', function () {
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+// Create New User
+Route::post('/register', [UserController::class, 'store']);

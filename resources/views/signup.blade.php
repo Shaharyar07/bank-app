@@ -20,7 +20,8 @@
                 <p class="text-center text-sm text-gray-600 mt-2">Already have an account? <a href="/"
                         class="text-blue-600 hover:text-blue-700 hover:underline" title="Sign In">Sign in here</a></p>
 
-                <form class="my-8 text-sm">
+                <form class="my-8 text-sm"  method="POST" action="/register">
+                    @csrf
                     <div class="flex flex-col my-4">
                     <div class="flex relative ">
                         <span
@@ -31,9 +32,9 @@
                                 </path>
                             </svg>
                         </span>
-                        <input type="text" id="design-login-email"
+                        <input type="email" id="email" name="email"
                             class=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                            placeholder="Email" />
+                            placeholder="Email" value="{{old('email')}}" />
                     </div>
                     </div>
                     <div class="flex flex-col my-4">
@@ -46,9 +47,9 @@
 						clip-rule="evenodd" />
 				</svg>
                         </span>
-                        <input type="text" id="design-login-email"
+                        <input type="text" id="name" name="name"
                             class=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                            placeholder="Name" />
+                            placeholder="Name" value="{{old('name')}}" />
                     </div>
                     </div>
 
@@ -63,7 +64,8 @@
                                 </path>
                             </svg>
                         </span>
-                        <input type="password" id="design-login-password"
+                        <input type="password" id="password" name="password"
+                        value="{{old('password')}}"
                             class=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                             placeholder="Password" />
                     </div>
@@ -78,9 +80,9 @@
 							d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
 					</svg>
                         </span>
-                        <input type="password" id="confirm-login-password"
+                        <input type="password" id="confirm" name="confirm"
                             class=" flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                            placeholder="Confirm Password" />
+                            placeholder="Confirm Password " value="{{old('confirm')}}" />
                     </div>
                 </div>
 
@@ -93,6 +95,7 @@
 
                     <div class="my-4 flex items-center justify-end space-x-4">
                         <button
+                        type="submit"
                             class="w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-black shadow-md hover:text-black hover:bg-white focus:outline-none focus:ring-2">Sign
                             Up</button>
                     </div>

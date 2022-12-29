@@ -20,11 +20,10 @@ class DatabaseSeeder extends Seeder
         Account::factory(10)->create();
         Transaction::factory(10)->create();
 
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
     }
 }

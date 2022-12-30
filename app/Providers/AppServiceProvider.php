@@ -27,7 +27,13 @@ class AppServiceProvider extends ServiceProvider
 
         // Using view composer to set following variables globally
         view()->composer('*', function ($view) {
-            $view->with('account', \App\Models\Account::find(1));
+            //every view except index
+            if (!in_array($view->getName(), ['index', 'signup', 'layout'])) {
+                $account = \App\Models\Account::where('Account Holder', auth()->user()->name)->first();
+                
+
+                $view->with('account', $account);
+            }
         });
     }
 }

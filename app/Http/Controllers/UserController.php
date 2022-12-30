@@ -6,12 +6,16 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+use Faker\Generator;
+use Illuminate\Container\Container;
+
 class UserController extends Controller
 {
 
     // Create New User
     public function store(Request $request)
     {
+
         $formFields = $request->validate([
             'name' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
@@ -24,10 +28,11 @@ class UserController extends Controller
             'password' => bcrypt($formFields['password'])
         ]);
 
+
         auth()->login($user);
 
         return redirect('/dashboard')->with('message', 'You are now signed up!');
-    }
+    }   
 
 
     // Logout User

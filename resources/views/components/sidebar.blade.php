@@ -12,7 +12,7 @@
        <a href="/profile">
        <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp" alt=""
           class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28">
-        <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{{$account['Account Holder'] ?? "xxxx-xxxxx"}}</h5>
+        <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{{auth()->user()->name}}</h5>
         <span class="hidden text-gray-400 lg:block">{{$account['Account Number'] ?? "xxxx-xxxxx"}}</span>
       </a>
       </div>

@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view(
         'index'
     );
-});
+})->name('index');
 Route::get('/signup', function () {
     return view('signup');
 });
@@ -31,7 +31,7 @@ Route::get('/dashboard', function () {
             'title' => 'Dashboard',
         ]
     );
-});
+})->middleware('auth');
 Route::get('/investments', function () {
     return view('investments', [
         'title' => 'Investments',
@@ -46,7 +46,7 @@ Route::get('/transactions', function () {
 
         ]
     );
-});
+})->middleware('auth');
 Route::get('/transferFunds', function () {
     return view(
         'transferFunds',
@@ -54,7 +54,7 @@ Route::get('/transferFunds', function () {
             'title' => 'Transfer Funds',
         ]
     );
-});
+})->middleware('auth');
 Route::get('/profile', function () {
     return view(
         'profile',
@@ -62,10 +62,13 @@ Route::get('/profile', function () {
             'title' => 'Profile',
         ]
     );
-});
+})->middleware('auth');
 
 // Log In User
-Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate'])->middleware('guest');
 
 // Create New User
-Route::post('/register', [UserController::class, 'store']);
+Route::post('/register', [UserController::class, 'store'])->middleware('guest');
+
+// Logout User
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');

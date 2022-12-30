@@ -7,14 +7,24 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <button
+        {{-- Logout --}}
+        @auth
+          
+       
+         <form class="inline" method="POST" action="/logout">
+          @csrf
+          <button type="submit"
           class="px-4 py-3 flex items-center space-x-4 rounded-xl text-grey-600 group hover:bg-gradient-to-r from-sky-600 to-cyan-400 hover:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>
-          <a class="-mr-1 font-medium" href="/">Logout</a>
+          
         </button>
+        </form>
+         @endauth
+         
+        
 
       </div>
     </div>

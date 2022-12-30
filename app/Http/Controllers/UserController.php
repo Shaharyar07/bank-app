@@ -13,22 +13,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => 'required|confirm'
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'password' => 'required'
         ]);
 
-        // Hash Password
-        $formFields['password'] = bcrypt($formFields['password']);
+        $user = User::create([
+            'name' => $formFields['name'],
+            'email' => $formFields['email'],
+            'password' => bcrypt($formFields['password'])
+        ]);
 
-
-        // Create User
-        $user = User::create($formFields);
-
-        // Login
         auth()->login($user);
 
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('message', 'You are now signed up!');
     }
 
 

@@ -80,9 +80,9 @@
 
                 <tr>
                   <td class="py-2">Investments</td>
-                  <td class="text-gray-500">1200</td>
+                  <td class="text-gray-500">{{$account['Investment Amount']}}</td>
                   <td>
-                    <svg class="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-16 ml-4" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />
                       <rect opacity="0.4" x="19" width="14" height="21" rx="1" fill="#e4e4f2" />
                       <rect opacity="0.4" x="35" width="14" height="21" rx="1" fill="#e4e4f2" />

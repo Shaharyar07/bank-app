@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -21,47 +22,28 @@ Route::get('/', function () {
         'index'
     );
 })->name('index');
+
 Route::get('/signup', function () {
     return view('signup');
 });
-Route::get('/dashboard', function () {
-    return view(
-        'dashboard',
-        [
-            'title' => 'Dashboard',
-        ]
-    );
-})->middleware('auth');
-Route::get('/investments', function () {
-    return view('investments', [
-        'title' => 'Investments',
-    ]);
-});
-Route::get('/transactions', function () {
-    return view(
-        'transactions',
-        [
-            'title' => 'Transactions',
-            "transactions" => \App\Models\Transaction::all(),
 
-        ]
-    );
+Route::get('/dashboard', function () {
+    return view('dashboard');
 })->middleware('auth');
+
+
+Route::get('/investments', function () {
+    return view('investments');
+})->middleware('auth');
+
+Route::get('/transactions', [TransactionController::class, 'getTransactions'])->middleware('auth');
+
 Route::get('/transferFunds', function () {
-    return view(
-        'transferFunds',
-        [
-            'title' => 'Transfer Funds',
-        ]
-    );
+    return view('transferFunds');
 })->middleware('auth');
+
 Route::get('/profile', function () {
-    return view(
-        'profile',
-        [
-            'title' => 'Profile',
-        ]
-    );
+    return view('profile');
 })->middleware('auth');
 
 // Log In User

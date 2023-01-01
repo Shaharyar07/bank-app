@@ -59,7 +59,7 @@
             <div>
               <h5 class="text-xl text-gray-600 text-center">Your Current Balance</h5>
               <div class="mt-2 flex justify-center gap-4">
-                <h3 class="text-3xl font-bold text-gray-700">{{$account->Balance}} -$</h3>
+                <h3 class="text-3xl font-bold text-gray-700">{{$account['Balance' ] ?? 'xxxxx'}} -$</h3>
                 <div class="flex items-end gap-1 text-green-500">
                   <svg class="w-3" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z" fill="currentColor" />
@@ -80,7 +80,7 @@
 
                 <tr>
                   <td class="py-2">Investments</td>
-                  <td class="text-gray-500">{{$account['Investment Amount']}}</td>
+                  <td class="text-gray-500">{{$account['Investment Amount'] ?? 'xxxxx'}}</td>
                   <td>
                     <svg class="w-16 ml-4" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />

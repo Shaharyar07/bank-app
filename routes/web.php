@@ -54,3 +54,6 @@ Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 
 // Logout User
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+// transfer funds
+Route::post('/fundTransfer', [TransactionController::class, 'fundTransfer'])->middleware('auth');

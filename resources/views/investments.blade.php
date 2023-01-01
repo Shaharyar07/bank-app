@@ -12,8 +12,8 @@
         <div class="h-full py-6 px-6 rounded-xl border border-gray-200 bg-white">
           <h5 class="text-3xl text-gray-700 font-bold border-b-2 py-4">Track your investments</h5>
           <div class="my-8">
-            <h1 class="text-5xl font-bold text-gray-800">64,5%</h1>
-            <span class="text-gray-500">Compared to last week $13,988</span>
+            <h1 class="text-5xl font-bold text-gray-800">{{$percentage}}%</h1>
+            <span class="text-gray-500">Compared to last week $ {{$profits}}</span>
           </div>
           <svg class="w-full" viewBox="0 0 218 69" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -39,7 +39,7 @@
             <tbody class="p-3">
               <tr class="border">
                 <td class="py-2">From new users</td>
-                <td class="text-gray-500">896</td>
+                <td class="text-gray-500">{{$newProfits}}</td>
                 <td>
                   <svg class="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />
@@ -61,7 +61,7 @@
               </tr>
               <tr>
                 <td class="py-2">From old users</td>
-                <td class="text-gray-500">1200</td>
+                <td class="text-gray-500">{{$oldProfits}}</td>
                 <td>
                   <svg class="w-16 ml-auto" viewBox="0 0 68 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect opacity="0.4" width="17" height="21" rx="1" fill="#e4e4f2" />

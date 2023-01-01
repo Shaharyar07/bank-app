@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -32,9 +33,7 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 
-Route::get('/investments', function () {
-    return view('investments');
-})->middleware('auth');
+Route::get('/investments', [InvestmentController::class,'getProfits', 'getProfitByUsers'])->middleware('auth');
 
 Route::get('/transactions', [TransactionController::class, 'getTransactions'])->middleware('auth');
 

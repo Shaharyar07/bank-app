@@ -31,9 +31,8 @@ class AppServiceProvider extends ServiceProvider
 
             //every view except index
             if (!in_array($view->getName(), ['index', 'signup'])) {
-
                 $account = \App\Models\Account::where('Account Holder', auth()->user()->name)->get();
-                
+
                 $view->with('account', $account[0]);
             }
         });

@@ -33,7 +33,7 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 
-Route::get('/investments', [InvestmentController::class,'getProfits', 'getProfitByUsers'])->middleware('auth');
+Route::get('/investments', [InvestmentController::class, 'getProfits'])->middleware('auth');
 
 Route::get('/transactions', [TransactionController::class, 'getTransactions'])->middleware('auth');
 

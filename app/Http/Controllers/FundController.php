@@ -14,9 +14,8 @@ class FundController extends Controller
             'accountNumber' => 'required|numeric',
         ]);
 
-        $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name)
 
-            ->get('Account Number');
+        $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name)->get('Account Number');
 
 
         $AccountNum = $accountNumber->toArray();

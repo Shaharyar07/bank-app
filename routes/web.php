@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FundController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\TransactionController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,4 @@ Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // transfer funds
-Route::post('/fundTransfer', [TransactionController::class, 'fundTransfer'])->middleware('auth');
+Route::post('/fundTransfer', [FundController::class, 'fundTransfer'])->middleware('auth');

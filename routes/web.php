@@ -64,28 +64,5 @@ Route::post('/fundTransfer', [FundController::class, 'fundTransfer'])->middlewar
 
 //search transactions
 Route::get(
-    '/search',
-    function (Request $request) {
-        // Get the search query
-        $search = $request->search;
-        // Return the search results as a JSON response
-        $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name)
-
-            ->get('Account Number');
-
-        $AccountNum = $accountNumber->toArray();
-        $accountNumber = $AccountNum[0]['Account Number'];
-
-        //paginate transactions
-        $transactions = \App\Models\Transaction::where('Account Number', $accountNumber)->latest();
-
-        //filter transactions by search query
-
-        $transactions = $transactions->where('Receiver Name', 'like', '%' . $search . '%');
-        return $transactions;
-    }
-
-
-    // Return the search results as a JSON response
-
+    '/search',[TransactionController::class, 'search']
 )->middleware('auth');

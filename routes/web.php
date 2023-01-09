@@ -68,6 +68,7 @@ Route::get(
     function (Request $request) {
         // Get the search query
         $search = $request->search;
+        // Return the search results as a JSON response
         $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name)
 
             ->get('Account Number');
@@ -75,24 +76,16 @@ Route::get(
         $AccountNum = $accountNumber->toArray();
         $accountNumber = $AccountNum[0]['Account Number'];
 
+        //paginate transactions
+        $transactions = \App\Models\Transaction::where('Account Number', $accountNumber)->latest();
 
-        // Perform the search and get the results
-        $transactions = Transaction::where('Account Number', $accountNumber)->latest();
+        //filter transactions by search query
 
-        if ($search) {
-            $transactions = $transactions->where('Transaction Type', 'like', '%' . $search . '%')
-                ->orWhere('Amount', 'like', '%' . $search . '%')
-                ->orWhere('Date', 'like', '%' . $search . '%')
-                ->orWhere('Time', 'like', '%' . $search . '%')
-                ->orWhere('Account Number', 'like', '%' . $search . '%')
-                ->orWhere('Account Name', 'like', '%' . $search . '%')
-                ->orWhere('Account Balance', 'like', '%' . $search . '%')
-                ->orWhere('Transaction ID', 'like', '%' . $search . '%')
-                ->orWhere('Receiver Name', 'like', '%' . $search . '%');
-            // Return the search results as a JSON response
-            return response()->json($transactions);
-        }
-
-       
+        $transactions = $transactions->where('Receiver Name', 'like', '%' . $search . '%');
+        return $transactions;
     }
+
+
+    // Return the search results as a JSON response
+
 )->middleware('auth');

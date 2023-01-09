@@ -32,9 +32,7 @@ class TransactionController extends Controller
 
         if ($request->ajax()) {
             dd($request);
-            $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name)
-
-                ->get('Account Number');
+            $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name) ->get('Account Number');
 
             $AccountNum = $accountNumber->toArray();
             $accountNumber = $AccountNum[0]['Account Number'];

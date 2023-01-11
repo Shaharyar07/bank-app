@@ -24,8 +24,10 @@ class TransactionFactory extends Factory
             "Transaction Date" => $this->faker->date(),
             "Transaction Amount" => $this->faker->randomNumber(5),
             "Transaction Status" => $this->faker->randomElement(['Success', 'Failed']),
-            "Receiver Name" => $this->faker->name,
+            "Receiver Name" => $this->faker->randomElement(['John Doe', 'Jane Doe', 'John Smith', 'Jane Smith']),
             "Receiver Account Number" => $this->faker->randomNumber(9),
+            "extra" => $this->faker->text(50),
+
         ];
     }
 }

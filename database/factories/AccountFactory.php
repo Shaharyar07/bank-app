@@ -19,7 +19,7 @@ class AccountFactory extends Factory
         return [
 
             //
-            "Account Holder" => $this->faker->name,
+            "Account Holder" => $this->faker->randomElement(['John Doe', 'Jane Doe', 'John Smith', 'Jane Smith']),
             "Account Number" => $this->faker->unique()->randomNumber(9),
             "Account Type" => $this->faker->randomElement(['Savings', 'Current']),
             "Bank Name" => $this->faker->company,

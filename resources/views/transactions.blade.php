@@ -124,7 +124,7 @@
 
 
    <script>
-    var filteredTransactions;
+      var filteredTransactions;
    $(document).ready(function () {
    $("#search").on("keyup", function () {
    // Get the search query
@@ -153,13 +153,13 @@
    );
    });
    var searchResults = $("#search-results");
-   // console.log(filteredTransactions);
-   // console.log(searchResults);
+   console.log(filteredTransactions);
+   console.log(searchResults);
    // add the filtered transactions to the search results
    searchResults.html("");
    filteredTransactions.forEach(function (transaction) {
    searchResults.append(
-   `<option value="${transaction[" Receiver Name"]}">`
+   `<option value="${transaction["Receiver Name"]}">`
       );
       });
       },
@@ -208,7 +208,7 @@
          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
             <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                <span aria-hidden class="absolute inset-0 opacity rounded-full ${
-                         transaction[" Transaction Status"]=="Success" ? "bg-green-200" : "bg-red-500" }"></span>
+                         transaction["Transaction Status"]=="Success" ? "bg-green-200" : "bg-red-500" }"></span>
                <span class="relative">${
                   transaction["Transaction Status"]
                   }</span>

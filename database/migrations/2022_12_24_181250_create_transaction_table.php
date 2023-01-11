@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('Transaction Status');
             $table->string('Receiver Name');
             $table->string('Receiver Account Number');
+            $table->string('extra');
         });
+
     }
 
     /**
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaction');
+        Schema::dropIfExists('transactions');
     }
 };

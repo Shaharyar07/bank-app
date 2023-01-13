@@ -11,6 +11,7 @@ class TransactionController extends Controller
     //get all transactions made by user using his account number
     public function getTransactions()
     {
+        
         $accountNumber = \App\Models\Account::where('Account Holder', auth()->user()->name)
 
             ->get('Account Number');
@@ -42,6 +43,4 @@ class TransactionController extends Controller
 
         return response()->json($transactions->get());
     }
-
-    
 }

@@ -17,11 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Account::factory(10)->create();
+        // Account::factory(3)->create();
         Transaction::factory(50)->create();
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
     }
 }
